@@ -8,13 +8,13 @@ import pages.wait.Wait;
 
 public class AccountPage extends PageBase {
 
-    Wait wait;
-
     public AccountPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//*[@ng-click='byebye()']") //проверка страницы на уникальность (наличие кнопки logoutn)
+    Wait wait;
+
+    @FindBy(xpath = "//*[@ng-click='byebye()']") //проверка страницы на уникальность (наличие кнопки logout)
     protected WebElement logoutButton;
 
     public void waitForLoading() {                //метод будет ждать загрузку элемента

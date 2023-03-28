@@ -4,30 +4,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.PageBase;
+import pages.wait.Wait;
 
 public class BankManagerLoginPage extends PageBase {
     public BankManagerLoginPage(WebDriver driver) {
         super(driver);
     }
 
+    Wait wait;
+
     @FindBy(xpath = "//*[@ng-click='addCust()']")
-    private WebElement addCastomerTab;
+    protected WebElement addCustomerTab;
 
     @FindBy(xpath = "//*[@ng-click='openAccount()']")
-    private WebElement openAccountTab;
+    protected WebElement openAccountTab;
 
     @FindBy(xpath = "//*[@ng-click='showCust()']")
-    private WebElement customersTab;
+    protected WebElement customersTab;
+
+    public void waitForLoading() {
+        wait = new Wait(driver);
+        wait.forVisibility(addCustomerTab);
+        wait.forVisibility(openAccountTab);
+        wait.forVisibility(customersTab);
+    }
 
     public void openAddCustomerTab() {
-        click(addCastomerTab);
+        click(addCustomerTab);
     }
 
     public void openAccountTab() {
-        click(addCastomerTab);
+        click(openAccountTab);
     }
 
-    public void opencustomersTab() {
-        click(addCastomerTab);
+    public void openCustomersTab() {
+        click(customersTab);
     }
 }
