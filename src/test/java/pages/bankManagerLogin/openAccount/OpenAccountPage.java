@@ -33,6 +33,10 @@ public class OpenAccountPage extends PageBase {
         selectOption(userName, customerNameDropdown);
     }
 
+    public void checkNotExistingCustomer(String expectedCustomerOption) {
+        checkNotExistingOption(expectedCustomerOption, customerNameDropdown);
+    }
+    
     public void selectCurrency(String currency) {
         selectOption(currency, currencyDropdown);
     }

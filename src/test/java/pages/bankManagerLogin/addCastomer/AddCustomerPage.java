@@ -37,6 +37,14 @@ public class AddCustomerPage extends PageBase {
         fillField(postCodeField, postCode);
     }
 
+    //non-working test
+/*    public void cherckFilledCustomerForm(String firstName, String lastName, String postCode) {
+        String err = "unvalif text in add customer form";
+        checkItemText(firstNameField, firstName, err);
+        checkItemText(lastNameField, lastName, err);
+        checkItemText(postCodeField, postCode, err);
+    }*/
+
     public void clickOnAddCustomerButton() {
         click(addCustomerButton);
     }

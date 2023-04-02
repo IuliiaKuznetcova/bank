@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.awt.*;
 import java.io.BufferedReader;
@@ -40,9 +41,14 @@ public class PageBase {
     public void selectOption(String optionName, WebElement selectElement) {
         Select select = new Select(selectElement);
         select.selectByVisibleText(optionName);
-
     }
 
+    public void checkNotExistingOption(String expectedNameOption, WebElement selectElement) {
+        Select select = new Select(selectElement);
+        for (WebElement option : select.getOptions()) {
+            Assert.assertNotEquals(option.getText(), expectedNameOption);
+        }
+    }
     //сравнить
    /* public void fillField(String userData, By WebElement) {
         driver.findElement(WebElement).click();
@@ -56,6 +62,12 @@ public class PageBase {
         field.clear();
         field.sendKeys(text);
     }
+
+    //non-working test
+  /*  public void checkItemText(WebElement element, String expectedErrorMessage, String err) {
+        String actualErrorMessage = element.getText();
+        Assert.assertEquals(actualErrorMessage, expectedErrorMessage, err);
+    }*/
 
     public String getAlertText() {
         return driver.switchTo().alert().getText();

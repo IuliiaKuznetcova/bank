@@ -28,6 +28,10 @@ public class CustomerLoginPage extends PageBase {
         selectOption(userName, userSelect);
     }
 
+    public void checkNotExistingCustomer(String expectedCustomerOption) {
+        checkNotExistingOption(expectedCustomerOption, userSelect);
+    }
+
     public void clickOnLoginButton() {
         click(loginButton);
     }
